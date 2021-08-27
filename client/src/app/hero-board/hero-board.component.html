@@ -1,0 +1,44 @@
+<div class="main">
+  <h2 *ngIf="heroes.length > 1">Heroes board</h2>
+  <h2 *ngIf="heroes.length <= 1">Hero board</h2>
+  <div class="scroll">
+    <table class="herotable">
+      <tr class="heroheader">
+        <th contenteditable="false">ID</th>
+        <th contenteditable="false">Name</th>
+      </tr>
+      <tr class="herodata" #data *ngFor="let h of heroes" contenteditable="true" (mousedown)="heroId=+h.id" (click)="showHeroDetails();" (focusout)="updateRecord(data);" (input)="edited=true">
+        <td contenteditable="false">{{h.id}}</td>
+        <td contenteditable="false">
+          <span contenteditable="true" (keydown)="preventEnter($event)" [innerHtml]="h.name"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="add-remove-container">
+    <input class="add" type="button" value="+"/>
+    <input class="remove" type="button" value="-"/>
+  </div>
+
+  <div class="text-field">
+    <input class="search" type="text" placeholder="Search"/>
+  </div>
+
+  <div class="scroll">
+    <table class="enemytable">
+      <tr class="enemyheader">
+        <th contenteditable="false">ID</th>
+        <th contenteditable="false">Enemy name</th>
+        <th contenteditable="false">Hero ID</th>
+      </tr>
+      <tr class="enemydata" #data *ngFor="let e of enemies" contenteditable="true" (mousedown)="enemyId=+e.id; heroId=+e.heroNoEnemiesDto?.id" (click)="showEnemyDetails();" (focusout)="updateRecord(data)" (input)="edited=true">
+        <td contenteditable="false">{{e.id}}</td>
+        <td contenteditable="false">
+          <span contenteditable="true" (keydown)="preventEnter($event)" [innerHtml]="e.name"></span>
+        </td>
+        <td contenteditable="false">{{e.heroNoEnemiesDto?.id}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

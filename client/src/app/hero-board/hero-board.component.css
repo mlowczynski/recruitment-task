@@ -1,0 +1,119 @@
+.main {
+  text-align: center;
+}
+
+.scroll {
+  height:200px;
+  width: 70%;
+  padding-right: 3px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-y: auto;
+  scrollbar-color:#D0368A #e4e4e4;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(180deg, #D0368A 0%, #708AD4 99%);
+  border-radius: 100px;
+}
+
+
+table {
+  background-color: #eee;
+  border: 2px solid #555;
+  border-collapse: collapse;
+}
+
+[contenteditable="true"]:active,
+[contenteditable="true"]:focus {
+  outline: 0 solid transparent;
+  border-radius: 0px;
+}
+
+tr[contenteditable="true"]:hover {
+  background-color: #ddd;
+}
+
+tr[contenteditable="true"]:active,
+tr[contenteditable="true"]:focus-within {
+  outline: 3px solid magenta;
+  border-radius: 0px;
+}
+
+table, tr {
+  width: 100%;
+}
+
+.heroheader, .enemyheader {
+  text-decoration: underline;
+  border-radius: 20px;
+}
+
+.heroheader th {
+  width: calc(100% / 2)
+}
+
+.enemyheader th {
+  width: calc(100% / 3)
+}
+
+th, td {
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+span {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: block;
+}
+
+.add-remove-container {
+  position: fixed;
+  bottom: calc(50% - 10vw - 10px);
+  right: 0;
+  width: 15%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.add {
+  border-radius: 25px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10vw;
+  height: 10vw;
+  background-color: green;
+  font-size: 5vw;
+  display: block;
+}
+
+.remove {
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10vw;
+  height: 10vw;
+  background-color: red;
+  font-size: 5vw;
+  display: block;
+}
+
+.search {
+  border-width: 2px;
+  width: 50%;
+  font-size: 30px;
+  margin: 10px;
+  padding: 2px 5px;
+}
