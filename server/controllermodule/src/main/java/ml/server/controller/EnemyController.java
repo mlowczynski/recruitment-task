@@ -6,7 +6,6 @@ import ml.server.model.exception.EnemyNotFoundException;
 import ml.server.service.EnemyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +21,6 @@ public class EnemyController {
     Logger logger = LoggerFactory.getLogger(EnemyController.class);
     private final EnemyService enemyService;
 
-    @Autowired
     public EnemyController(EnemyService enemyService) {
         this.enemyService = enemyService;
     }
@@ -65,9 +63,9 @@ public class EnemyController {
     }
 
     @ExceptionHandler(value = EnemyNotFoundException.class)
-    public ResponseEntity handleEnemyNotFoundException(EnemyNotFoundException e) {
+    public ResponseEntity<String> handleEnemyNotFoundException(EnemyNotFoundException e) {
         logger.error(e.getMessage());
-        return new ResponseEntity("Enemy not found", HttpStatus.CONFLICT);
+        return new ResponseEntity<String>("Enemy not found", HttpStatus.CONFLICT);
     }
 
     @GetMapping("search")

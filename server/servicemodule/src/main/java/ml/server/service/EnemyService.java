@@ -3,7 +3,6 @@ package ml.server.service;
 import ml.server.model.Enemy;
 import ml.server.repository.EnemyRepository;
 import ml.server.model.exception.EnemyNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -16,7 +15,6 @@ public class EnemyService {
 
     private final EnemyRepository enemyRepository;
 
-    @Autowired
     public EnemyService(EnemyRepository enemyRepository) {
         this.enemyRepository = enemyRepository;
     }

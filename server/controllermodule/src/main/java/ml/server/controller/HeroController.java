@@ -8,7 +8,6 @@ import ml.server.model.exception.HeroNotFoundException;
 import ml.server.service.HeroService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +23,6 @@ public class HeroController {
     Logger logger = LoggerFactory.getLogger(EnemyController.class);
     private final HeroService heroService;
 
-    @Autowired
     public HeroController(HeroService heroService) {
         this.heroService = heroService;
     }
@@ -83,21 +81,21 @@ public class HeroController {
     }
 
     @ExceptionHandler(value = HeroNotFoundException.class)
-    public ResponseEntity handleHeroNotFoundException(HeroNotFoundException e) {
+    public ResponseEntity<String> handleHeroNotFoundException(HeroNotFoundException e) {
         logger.error(e.getMessage());
-        return new ResponseEntity("Hero not found", HttpStatus.CONFLICT);
+        return new ResponseEntity<String>("Hero not found", HttpStatus.CONFLICT);
     }
 
     @ExceptionHandler(value = EnemyNotFoundException.class)
-    public ResponseEntity handleEnemyNotFoundException(EnemyNotFoundException e) {
+    public ResponseEntity<String> handleEnemyNotFoundException(EnemyNotFoundException e) {
         logger.error(e.getMessage());
-        return new ResponseEntity("Enemy not found", HttpStatus.CONFLICT);
+        return new ResponseEntity<String>("Enemy not found", HttpStatus.CONFLICT);
     }
 
     @ExceptionHandler(value = EnemyIsAlreadyAssignedException.class)
-    public ResponseEntity EnemyIsAlreadyAssignedException(EnemyIsAlreadyAssignedException e) {
+    public ResponseEntity<String> EnemyIsAlreadyAssignedException(EnemyIsAlreadyAssignedException e) {
         logger.error(e.getMessage());
-        return new ResponseEntity("Enemy is already assigned to this hero", HttpStatus.CONFLICT);
+        return new ResponseEntity<String>("Enemy is already assigned to this hero", HttpStatus.CONFLICT);
     }
 
     @GetMapping("search")

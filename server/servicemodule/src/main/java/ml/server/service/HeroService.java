@@ -5,7 +5,6 @@ import ml.server.model.Hero;
 import ml.server.repository.HeroRepository;
 import ml.server.model.exception.EnemyIsAlreadyAssignedException;
 import ml.server.model.exception.HeroNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -20,7 +19,6 @@ public class HeroService {
     private final HeroRepository heroRepository;
     private final EnemyService enemyService;
 
-    @Autowired
     public HeroService(HeroRepository heroRepository, EnemyService enemyService) {
         this.heroRepository = heroRepository;
         this.enemyService = enemyService;
